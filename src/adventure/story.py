@@ -4,7 +4,6 @@ from rich.prompt import Prompt
 from rich.panel import Panel
 from rich.text import Text
 import random
-import time
 
 console = Console()
 
@@ -43,14 +42,19 @@ if __name__ == "__main__":
         ).lower().strip()
 
         if choice == "exit":
+            # Console-styled farewell
             console.print("\n[bold yellow]You decide to leave the forest...[/bold yellow]")
-            time.sleep(0.8)
             console.print(Panel.fit(
-                Text("🌅 The sunlight greets you as you find your way home.\n\n[bold green]Thank you for playing![/bold green]",
-                     justify="center"),
+                Text(
+                    "🌅 The sunlight greets you as you find your way home.\n\n"
+                    "[bold green]Thank you for playing![/bold green]",
+                    justify="center"
+                ),
                 title="Farewell, Traveler",
                 border_style="yellow"
             ))
+
+            print("Goodbye!")
             break
 
         result = step(choice, events)
